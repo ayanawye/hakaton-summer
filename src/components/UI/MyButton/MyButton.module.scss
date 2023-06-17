@@ -10,4 +10,11 @@
   color: $white-color;
   border-radius: 10px;
   font-family: inherit;
+  cursor: pointer;
+  @include adaptive-value ("font-size", 30, 16, 0);
+  &:hover{
+    font-size: 24px;
+    transform: scale(1.02);
+    box-shadow: 1px 1px 10px $accent-color;
+  }
 }
