@@ -1,5 +1,10 @@
+@import '../../../variables.scss';
+
 header {
   height: 100px;
+}
+.container{
+  @include adaptive-value("width", 1700, 300, 14);
 }
 .aboutus {   
   list-style-type: none;

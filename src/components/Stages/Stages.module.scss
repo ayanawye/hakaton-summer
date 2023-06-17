@@ -1,0 +1,39 @@
+@import '../../variables.scss';
+
+.container{
+    @include adaptive-value("width", 1700, 300, 14);
+    margin: 0 auto;
+}
+.item_wrap2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 15px;
+}
+.image{
+    width: 35%;
+    height: 50%;
+    margin-left: 20px;
+}
+.img{
+    height: 100%;
+    width: 100%;
+}
+.icon{
+    width: calc(33% - 10px);
+    h4{
+        color: $accent-color;
+    }
+}
+
+.description_block .grid .item .icon img {
+    display: flex;
+    max-width: 100%;
+    margin: 0 auto;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
