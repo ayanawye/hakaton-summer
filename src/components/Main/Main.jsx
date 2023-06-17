@@ -1,5 +1,4 @@
 import MyButton from '../UI/MyButton/MyButton';
-import Man from '../../assets/main.png';
 import s from './Main.module.scss';
 
 const Main = () => {

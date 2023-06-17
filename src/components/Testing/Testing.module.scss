@@ -1,0 +1,36 @@
+@import '../../variables.scss';
+
+.section{
+  padding: 0 0 80px;
+}
+.container{
+  height: 100%;
+  @include adaptive-value ("width", 1400, 300, 0);
+  margin: 0 auto;
+}
+.content{
+  padding-top: 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  p{
+    margin-top: 30px;
+    @include adaptive-value ("font-size", 24, 16, 0);
+  }
+  span{
+    color: $accent-color;
+    font-weight: 500;
+  }
+}
+.title{
+  width: 100%;
+  color: $white-color;
+  background: rgb(48,49,175);
+  background: linear-gradient(180deg, rgba(48,49,175,1) 0%, rgba(159,61,255,1) 100%);
+  text-align: center;
+  padding: 20px 0;
+  @include adaptive-value ("font-size", 40, 20, 0);
+}
