@@ -1,22 +1,27 @@
 import React from 'react';
-import s from "./Header.module.scss"
+import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';
+import { Menu } from 'antd';
+import { useState } from 'react';
 
 function Header() {
-  return (
-    <header className='header'>
-      <div className={s.container}>
-        <div>
-        <h1>Заголовок</h1>
-        <nav className="nav">
-          <ul>
-            <li className='aboutus'><a href="#">О нас</a></li>
-            <li className='test'><a href="#">Tect</a></li>
-          </ul>
-      </nav>
-        </div>
-      </div>
-    </header>
-  );
-}
+    const items = [
+      {
+        label: 'Главная',
+        key: 'mail',
+      },
+      {
+        label: 'Тесты знаний',
+        key: 'app',
+      },
+    ]
+    const [current, setCurrent] = useState('mail');
+  const onClick = (e) => {
+    console.log('click ', e);
+    setCurrent(e.key);
+  };
+
+  return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
+};
+
 
 export default Header;
