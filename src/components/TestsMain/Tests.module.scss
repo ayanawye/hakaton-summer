@@ -1,0 +1,42 @@
+@import '../../variables.scss';
+
+.section{
+  padding: 0 10px;
+  height: calc(100vh - 100px);
+  background: url("https://psytest.ht-lab.ru/upload/iblock/8ec/Banner_PsiTesty_2.jpg") no-repeat center/cover;
+}
+.container{
+  height: 100%;
+  @include adaptive-value ("width", 1600, 300, 0);
+  margin: 0 auto;
+}
+.content{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.left{
+  width: 70%;
+  h2{
+    color: $accent-color;
+    @include adaptive-value ("font-size", 60, 30, 0);
+  }
+  ul{
+    margin: 10px 0 20px;
+  }
+  li{
+    color: $white-color;
+    position: relative;
+    @include adaptive-value ("font-size", 30, 16, 0);
+    &::before{
+      content: "-";
+      margin-right: 10px;
+    }
+  }
+}
+.btn{
+  height: 40px;
+  width: 30%;
+}

@@ -1,0 +1,68 @@
+@import "../../variables.scss";
+
+.section {
+  padding: 0 0 50px;
+  background: linear-gradient(
+    180.18deg,
+    rgba(246, 245, 255, 0.5) 0.16%,
+    rgba(240, 240, 255, 0.5) 0.16%,
+    rgba(114, 101, 251, 0.5) 100.57%
+  );
+}
+.title {
+  width: 100%;
+  color: $white-color;
+  background: rgb(48, 49, 175);
+  background: linear-gradient(180deg, rgba(48, 49, 175, 1) 0%, rgba(159, 61, 255, 1) 100%);
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  @include adaptive-value("font-size", 35, 20, 0);
+}
+.container {
+  height: 100%;
+  @include adaptive-value("width", 1400, 300, 0);
+  margin: 0 auto;
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 5vh;
+  flex-wrap: wrap;
+  column-gap: 16px;
+  row-gap: 24px;
+}
+.card {
+  width: calc(25% - 12px);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  background: rgb(255, 255, 255, 0.5);
+  cursor: pointer;
+  & .image {
+    height: 200px;
+    border-radius: 4px;
+    background: $accent-color;
+    .img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 4px;
+    }
+  }
+  & h4 {
+    font-size: 24px;
+  }
+  & p {
+    color: $accent-color;
+    font-size: 12px;
+    line-height: 24px;
+  }
+  &:hover {
+    transform: scale(1.02);
+    background-color: $white-color;
+    box-shadow: 10px 10px 10px $accent-color;
+  }
+}

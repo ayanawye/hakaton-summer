@@ -1,0 +1,11 @@
+@import '../../variables.scss';
+
+.section{
+  padding: 30px 0;
+  height: 80vh;
+}
+.container{
+  height: 100%;
+  @include adaptive-value ("width", 1400, 300, 0);
+  margin: 0 auto;
+}
