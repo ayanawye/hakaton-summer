@@ -7,6 +7,6 @@ import Layout from './components/Layout/Layout';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Layout>
-      <App />
+      <App/>
     </Layout>
 );
