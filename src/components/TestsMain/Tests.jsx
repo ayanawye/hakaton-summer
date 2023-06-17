@@ -1,5 +1,8 @@
 import MyButton from "../UI/MyButton/MyButton";
 import s from "./Tests.module.scss";
+import { SiTestcafe } from "react-icons/si";
+import { SiSpeedtest } from "react-icons/si";
+import { BsPersonWorkspace } from "react-icons/bs";
 
 const Tests = () => {
   return (
@@ -16,6 +19,19 @@ const Tests = () => {
             </ul>
             <div className={s.btn}>
               <MyButton>Подробнее</MyButton>
+            </div>
+          </div>
+          <div className={s.right}>
+            <div>
+              <div className={s.icon}>
+                <SiTestcafe fill="#fff" size={30}/>
+              </div>
+              <div className={s.icon}>
+                <SiSpeedtest fill="#fff" size={30}/>
+              </div>
+              <div className={s.icon}>
+                <BsPersonWorkspace fill="#fff" size={30}/>
+              </div>
             </div>
           </div>
         </div>

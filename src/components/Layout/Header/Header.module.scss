@@ -1,14 +1,46 @@
 @import '../../../variables.scss';
 
-header {
-  height: 100px;
+.header {
+  position: fixed;
+  top: 0;
+  @include adaptive-value("height", 100, 50, 0);
+  z-index: 99999;
+  width: 100%;
+}
+.headerActive{
+  background: rgba($color: #ffffff, $alpha: .6);
+  position: fixed;
+  top: 0;
+  @include adaptive-value("height", 100, 50, 0);
+  z-index: 99999;
+  width: 100%;
 }
 .container{
-  @include adaptive-value("width", 1700, 300, 14);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
 }
-.aboutus {   
-  list-style-type: none;
-  padding-left: 200px;
- font-size:30 ;
- margin-top: 20px;
-} 
+.nav{
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo{
+  width: 50%;
+}
+.link{
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 40px;
+  font-size: 20px;
+}
+.active {
+  font-weight: 700;
+  border-bottom: 2px solid $accent-color;
+}
+.btn{
+  width: 20%;
+  height: 40%;
+}
