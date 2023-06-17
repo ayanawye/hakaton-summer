@@ -3,10 +3,6 @@
   margin: 0;
   box-sizing: border-box;
 }
-body{
-  max-width: 90%;
-  margin: 0 auto;
-}
 ul, li{
   list-style: none;
 }
