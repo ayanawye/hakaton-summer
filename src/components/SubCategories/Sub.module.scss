@@ -1,7 +1,7 @@
 @import "../../variables.scss";
 
 .section {
-  padding: 0 0 50px;
+  min-height: 100vh;
   background: linear-gradient(
     180.18deg,
     rgba(122, 37, 31, 0.5) 0.16%,
@@ -9,25 +9,20 @@
     rgba(80, 14, 14, 0.5) 100.57%
   );
 }
-.title {
-  margin: 0 auto;
-  width: 90%;
-  color: $white-color;
-  background: $accent-color;
-  text-align: center;
-  padding: 10px 0;
-  position: relative;
-  @include adaptive-value("font-size", 35, 20, 0);
-}
 .container {
   height: 100%;
   @include adaptive-value("width", 1400, 300, 0);
   margin: 0 auto;
+  display: flex;
+  padding: 100px 0;
+  justify-content: center;
+  align-items: center;
 }
 .cards {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  width: 100%;
   margin-top: 5vh;
   flex-wrap: wrap;
   column-gap: 16px;
@@ -36,6 +31,7 @@
 .card {
   width: calc(25% - 12px);
   border-radius: 10px;
+  height: 300px;
   padding: 10px;
   text-align: center;
   background: rgb(255, 255, 255, 0.5);
@@ -57,8 +53,7 @@
   }
   & p {
     color: $accent-color;
-    font-size: 12px;
-    line-height: 24px;
+    @include adaptive-value("font-size", 26, 16, 0);
   }
   &:hover {
     transform: scale(1.02);

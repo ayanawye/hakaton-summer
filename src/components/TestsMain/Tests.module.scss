@@ -1,8 +1,7 @@
 @import '../../variables.scss';
 
 .section{
-  padding: 0 10px;
-  height: calc(100vh - 100px);
+  height: 100vh;
   background: url("https://psytest.ht-lab.ru/upload/iblock/8ec/Banner_PsiTesty_2.jpg") no-repeat center/cover;
 }
 .container{
@@ -37,6 +36,42 @@
   }
 }
 .btn{
-  height: 40px;
+  height: 50px;
   width: 30%;
+}
+.right {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  .icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    position: absolute;
+    box-shadow: 0 0 30px $accent-color;
+    &:first-child {
+      transform: rotate(-22deg);
+      background: $accent-color;
+      left: 25%;
+      top: 20%;
+    }
+    &:nth-child(2) {
+      background: $accent-color;
+      transform: rotate(29deg);
+      right: 20px;
+      top: 270px;
+    }
+    &:nth-child(3) {
+      background: $accent-color;
+      transform: rotate(-19.5deg);
+      left: 20%;
+      top: 70%;
+    }
+  }
 }

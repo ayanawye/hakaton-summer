@@ -3,7 +3,7 @@ import block1 from '../../assets/block1.png';
 
 export default function Stages() {
   return (
-    <div>
+    <div className={s.section}>
       <div className={s.container}>
       <div className={s.item_wrap2}>
             <div className={s.icon}>
