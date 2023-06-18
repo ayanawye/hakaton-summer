@@ -3,6 +3,7 @@ import s from './Main.module.scss';
 
 const Main = () => {
   return (
+    <>
     <main className={s.main}>
       <div className={s.container}>
         <div className={s.content}>
@@ -22,6 +23,8 @@ const Main = () => {
         </div>
       </div>
     </main>
+    
+    </>
   );
 };
 
