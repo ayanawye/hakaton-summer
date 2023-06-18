@@ -4,20 +4,33 @@ import { IoMdMailUnread } from "react-icons/io";
 import { AiFillClockCircle } from "react-icons/ai";
 import MyButton from "../UI/MyButton/MyButton";
 import { ImLocation2 } from "react-icons/im";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Input } from "antd";
+import { Form, Input, Select, Button } from "antd";
+import { useFormik } from "formik";
 import * as Yup from "yup";
-import TextArea from "antd/es/input/TextArea";
+import { useDispatch } from "react-redux";
+import { postApp } from "../../store/reducer/application";
+
+const { Option } = Select;
+
+const validationSchema = Yup.object().shape({
+  full_name: Yup.string().required("Обязательное поле"),
+  phone: Yup.string().required("Обязательное поле"),
+  address: Yup.string().required("Обязательное поле"),
+});
 
 const Contact = () => {
-  const handleSubmit = (values, { setSubmitting }) => {
-    console.log(values);
-    setSubmitting(false);
-  };
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Введите ваше имя"),
-    phone: Yup.string().required("Введите ваш номер телефона"),
-    message: Yup.string().required("Введите ваше сообщение"),
+  const dispatch = useDispatch()
+  const formik = useFormik({
+    initialValues: {
+      full_name: "",
+      phone: "",
+      address: "",
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      dispatch(postApp(values))
+      console.log(values);
+    },
   });
   return (
     <main className={s.contact}>
@@ -25,66 +38,85 @@ const Contact = () => {
         <div className={s.content}>
           <div className={s.left}>
             <div className={s.info}>
-            <h2>Контакты</h2>
-            <div className={s.phone}>
-              <div>
-                <BsTelephoneFill size={20}  fill="#85233E" />
-                <a href="tel:+708780274">+0708780274</a>
+              <h2>Контакты</h2>
+              <div className={s.phone}>
+                <div>
+                  <BsTelephoneFill size={20} fill="#85233E" />
+                  <a href="tel:+708780274">+0708780274</a>
+                </div>
+                <div>
+                  <BsTelephoneFill size={20} fill="#85233E" />
+                  <a href="tel:+708780274">+0708780274</a>
+                </div>
+              </div>
+              <div className={s.email}>
+                <IoMdMailUnread size={20} fill="#85233E" />
+                <a href="mailto:info@gmail.com">info@gmail.com</a>
               </div>
               <div>
-                <BsTelephoneFill size={20}  fill="#85233E"/>
-                <a href="tel:+708780274">+0708780274</a>
+                <AiFillClockCircle size={20} fill="#85233E" />
+                <a>Пн - Пт: 10:00 - 18:00</a>
               </div>
-            </div>
-            <div className={s.email}>
-              <IoMdMailUnread  size={20}  fill="#85233E"/>
-              <a href="mailto:info@gmail.com">info@gmail.com</a>
-            </div>
-            <div>
-              <AiFillClockCircle  size={20}  fill="#85233E"/>
-              <a>Пн - Пт: 10:00 - 18:00</a>
-            </div>
-            <div>
-              <ImLocation2 size={20} fill="#85233E"/>
-              <a>г.Бишкек, БЦ Авангард, Токтогула 125/2</a>
-            </div>
+              <div>
+                <ImLocation2 size={20} fill="#85233E" />
+                <a>г.Бишкек, БЦ Авангард, Токтогула 125/2</a>
+              </div>
             </div>
           </div>
           <div className={s.form}>
-            <h2>Напишите нам</h2>
-            <Formik
-              initialValues={{
-                name: "",
-                phone: "",
-                message: "",
-              }}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-            >
-              <Form>
-                <div>
-                  <label htmlFor="name">Имя:</label>
-                  <Field type="text" id="name" name="name" as={Input} />
-                  <ErrorMessage name="name" style={{color: 'red'}} component="div" />
-                </div>
+            <h2>Пройти офлайн тестирование</h2>
+            <Form layout="vertical" onFinish={formik.handleSubmit}>
+              <Form.Item
+                label="Имя"
+                required
+                validateStatus={formik.errors.full_name ? "error" : ""}
+                help={formik.errors.full_name}
+              >
+                <Input
+                  name="full_name"
+                  value={formik.values.full_name}
+                  onChange={formik.handleChange}
+                />
+              </Form.Item>
 
-                <div>
-                  <label htmlFor="phone">Номер телефона:</label>
-                  <Field type="text" id="phone" name="phone" as={Input} />
-                  <ErrorMessage name="phone" style={{color: 'red'}}  component="div" />
-                </div>
+              <Form.Item
+                label="Номер телефона"
+                required
+                validateStatus={formik.errors.phone ? "error" : ""}
+                help={formik.errors.phone}
+              >
+                <Input
+                  name="phone"
+                  value={formik.values.phone}
+                  onChange={formik.handleChange}
+                />
+              </Form.Item>
 
-                <div>
-                  <label htmlFor="message">Сообщение:</label>
-                  <Field as={TextArea} id="message" name="message" />
-                  <ErrorMessage name="message" style={{color: 'red'}}  component="div" />
-                </div>
+              <Form.Item
+                label="Адрес"
+                required
+                validateStatus={formik.errors.address ? "error" : ""}
+                help={formik.errors.address}
+              >
+                <Select
+                  name="address"
+                  value={formik.values.address}
+                  onChange={(value) => formik.setFieldValue("address", value)}
+                >
+                  <Option value="">Выберите адрес</Option>
+                  <Option value="address1">Адрес 1</Option>
+                  <Option value="address2">Адрес 2</Option>
+                  <Option value="address3">Адрес 3</Option>
+                </Select>
+              </Form.Item>
 
-                <div className={s.btn}>
-                  <MyButton type="submit">Отправить сообщение</MyButton>
-                </div>
-              </Form>
-            </Formik>
+              <Form.Item>
+                {/* <Button type="primary" htmlType="submit">
+                  Отправить заявку
+                </Button> */}
+                <MyButton htmlType="submit">Отправить заявку</MyButton>
+              </Form.Item>
+            </Form>
           </div>
         </div>
       </div>

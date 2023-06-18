@@ -6,7 +6,8 @@ import Test from '../../pages/Test';
 import Contacts from '../../pages/Contacts';
 import Registration from '../RegistAuth/Regist/Regist';
 import Auth from '../RegistAuth/Auth/Auth';
-import SubCategories from '../../pages/SubCategories';
+import SubCategories from '../SubCategories/SubCategories';
+import Course from '../Course/Course';
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
           <Route path='/regist' element={<Registration />} />
           <Route path='/login' element={<Auth />} />
           <Route path='/tests/subcategories/:id' element={<SubCategories />} />
+          <Route path='/tests/direction/:id' element={<Course />} />
           <Route path='/contacts' element={<Contacts />} />
         </Route>
       </Routes>

@@ -4,12 +4,11 @@ import { useSelector } from "react-redux";
 
 const TestCards = () => {
   const { categories } = useSelector((state) => state.categories);
-  console.log(categories);
 
   return (
     <section className={s.section}>
       <div className={s.title}>
-        <h2>Категории</h2>
+      <h2>Категории</h2>
       </div>
       <div className={s.container}>
         <div className={s.cards}>
